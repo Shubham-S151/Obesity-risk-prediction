@@ -29,7 +29,7 @@ def main():
                  accurate predictions to help users understand potential risks.")
 
     # Input fields for each of the columns
-    gender = st.selectbox('Enter Gender:', ['Male', 'Female'])
+    gender = (lambda x : 0 if x.lower()=='male' else 1)(st.selectbox('Enter Gender:', ['Male', 'Female']))
     age = st.number_input('Enter Age:', min_value=0, max_value=100, step=1)
     height = st.number_input('Enter Height (cm):', min_value=50, max_value=300, step=1)
     weight = st.number_input('Enter Weight (kg):', min_value=1, max_value=200, step=1)
@@ -48,7 +48,6 @@ def main():
     bmi = weight / (height/100)**2  # Calculate BMI manually
 
     # Encode the categorical inputs using the LabelEncoder
-    encoded_gender = label_encoder.transform([gender])[0]
     encoded_family_history = label_encoder.transform([family_history_with_overweight])[0]
     encoded_favc = label_encoder.transform([favc])[0]
     encoded_caec = label_encoder.transform([caec])[0]
@@ -58,7 +57,7 @@ def main():
     encoded_mtrans = label_encoder.transform([mtrans])[0]
 
     # Collect all the encoded inputs into a list
-    input_list = [[encoded_gender, age, height, weight, encoded_family_history, encoded_favc, fcvc, ncp, 
+    input_list = [[gender, age, height, weight, encoded_family_history, encoded_favc, fcvc, ncp, 
                   encoded_caec, encoded_smoke, ch2o, encoded_scc, faf, tue, encoded_calc, encoded_mtrans, bmi]]
 
     if st.button('Predict'):
