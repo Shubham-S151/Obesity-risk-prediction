@@ -48,7 +48,7 @@ def main():
     bmi = weight / (height/100)**2  # Calculate BMI manually
 
     # Encode the categorical inputs using the LabelEncoder
-    encoded_family_history = label_encoder.transform([family_history_with_overweight])[0]
+    encoded_family_history = label_encoder.transform([family_history_with_overweight.lower()])[0]
     encoded_favc = label_encoder.transform([favc])[0]
     encoded_caec = label_encoder.transform([caec])[0]
     encoded_smoke = label_encoder.transform([smoke])[0]
