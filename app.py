@@ -2,6 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import pickle
+enc=LabelEncoder()
 
 # Load the instances that were created
 
@@ -64,14 +65,14 @@ def main():
     bmi = weight/(height/100)**2
 
     # Encode the categorical inputs using the LabelEncoder
-    encoded_gender = encoder.fit_transform([gender])[0]  # Encoding 'Gender'
-    encoded_family_history = encoder.fit_transform([family_history_with_overweight])[0]  # Encoding 'family_history_with_overweight'
-    encoded_favc = encoder.fit_transform([favc])[0]  # Encoding 'FAVC'
-    encoded_caec = encoder.fit_transform([caec])[0]  # Encoding 'CAEC'
-    encoded_smoke = encoder.fit_transform([smoke])[0]  # Encoding 'SMOKE'
-    encoded_scc = encoder.fit_transform([scc])[0]  # Encoding 'SCC'
-    encoded_calc = encoder.fit_transform([calc])[0]  # Encoding 'CALC'
-    encoded_mtrans = encoder.fit_transform([mtrans])[0]  # Encoding 'MTRANS'
+    encoded_gender = enc.fit_transform([gender])[0]  # Encoding 'Gender'
+    encoded_family_history = enc.fit_transform([family_history_with_overweight])[0]  # Encoding 'family_history_with_overweight'
+    encoded_favc = enc.fit_transform([favc])[0]  # Encoding 'FAVC'
+    encoded_caec = enc.fit_transform([caec])[0]  # Encoding 'CAEC'
+    encoded_smoke = enc.fit_transform([smoke])[0]  # Encoding 'SMOKE'
+    encoded_scc = enc.fit_transform([scc])[0]  # Encoding 'SCC'
+    encoded_calc = enc.fit_transform([calc])[0]  # Encoding 'CALC'
+    encoded_mtrans = enc.fit_transform([mtrans])[0]  # Encoding 'MTRANS'
 
     # Collect all the encoded inputs into a list
     input_list = [[encoded_gender, age, height, weight, encoded_family_history, encoded_favc, fcvc, ncp, encoded_caec,
