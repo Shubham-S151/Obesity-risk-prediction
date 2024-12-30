@@ -8,7 +8,7 @@ import pickle
 with open('model.pkl','rb') as file:
     model = pickle.load(file)
 
-with open('scaler.pkl','rb') as file:
+with open('encoder.pkl','rb') as file:
     encoder = pickle.load(file)
 
 def prediction(input_data):
