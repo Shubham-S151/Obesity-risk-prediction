@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 import pickle
-enc=LabelEncoder()
 
 # Load the instances that were created
 
@@ -11,7 +10,7 @@ with open('model.pkl','rb') as file:
     model = pickle.load(file)
 
 with open('encoder.pkl','rb') as file:
-    encoder = pickle.load(file)
+    enc = pickle.load(file)
 
 def prediction(input_data):
     pred = model.predict(pca_data)
