@@ -63,7 +63,6 @@ def main():
     tue = st.number_input('TUE (Time spent on exercise or activity in hours per week):', min_value=0, max_value=168, step=1)
     calc = st.selectbox('CALC (Do you consume alcohol?):', ['Yes', 'No'])
     mtrans = st.selectbox('MTRANS (Transportation mode):', ['Walking', 'Bicycle', 'Car', 'Public transport'])
-    nobeyesdad = st.selectbox('NObeyesdad (Obesity level):', ['Obese', 'Not obese'])
     bmi = weight/height**2
 
     # Encode the categorical inputs using the LabelEncoder
@@ -75,11 +74,10 @@ def main():
     encoded_scc = encoder.fit_transform([scc])[0]  # Encoding 'SCC'
     encoded_calc = encoder.fit_transform([calc])[0]  # Encoding 'CALC'
     encoded_mtrans = encoder.fit_transform([mtrans])[0]  # Encoding 'MTRANS'
-    encoded_nobeyesdad = encoder.fit_transform([nobeyesdad])[0]  # Encoding 'NObeyesdad'
 
     # Collect all the encoded inputs into a list
     input_list = [[encoded_gender, age, height, weight, encoded_family_history, encoded_favc, fcvc, ncp, encoded_caec,
-               encoded_smoke, ch2o, encoded_scc, faf, tue, encoded_calc, encoded_mtrans, encoded_nobeyesdad, bmi]]
+               encoded_smoke, ch2o, encoded_scc, faf, tue, encoded_calc, encoded_mtrans, bmi]]
 
     if st.button('Predict'):
         response = prediction(input_list)
