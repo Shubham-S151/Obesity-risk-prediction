@@ -49,7 +49,7 @@ def main():
     # Input fields for each of the columns
     gender = st.selectbox('Enter Gender:', ['Male', 'Female'])
     age = st.number_input('Enter Age:', min_value=0, max_value=100, step=1)
-    height = st.number_input('Enter Height (m):', min_value=1, max_value=4)
+    height = st.number_input('Enter Height (cm):', min_value=50, max_value=250, step=1)
     weight = st.number_input('Enter Weight (kg):', min_value=1, max_value=200, step=1)
     family_history_with_overweight = st.selectbox('Family history with overweight:', ['Yes', 'No'])
     favc = st.selectbox('FAVC (Frequent consumption of high caloric food):', ['Yes', 'No'])
@@ -63,7 +63,7 @@ def main():
     tue = st.number_input('TUE (Time spent on exercise or activity in hours per week):', min_value=0, max_value=168, step=1)
     calc = st.selectbox('CALC (Do you consume alcohol?):', ['Yes', 'No'])
     mtrans = st.selectbox('MTRANS (Transportation mode):', ['Walking', 'Bicycle', 'Car', 'Public transport'])
-    bmi = weight/height**2
+    bmi = weight/(height/100)**2
 
     # Encode the categorical inputs using the LabelEncoder
     encoded_gender = encoder.fit_transform([gender])[0]  # Encoding 'Gender'
