@@ -11,11 +11,8 @@ with open('encoder.pkl', 'rb') as file:
     label_encoder = pickle.load(file)  # Assuming it's a LabelEncoder or similar
 
 def prediction(input_data):
-    # Transform the input data using the encoder
-    pca_data = label_encoder.transform(input_data)
-
     # Make prediction
-    pred = model.predict(pca_data)[0]
+    pred = model.predict(input_data)[0]
 
     # Return corresponding category
     categories = [
