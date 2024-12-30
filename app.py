@@ -12,9 +12,7 @@ with open('encoder.pkl','rb') as file:
     encoder = pickle.load(file)
 
 def prediction(input_data):
-    pca_data = encoder.transform(input_data)
-
-    pred = model.predict(pca_data)[0]
+    pred = model.predict(pca_data)
     '''{
     0: 'Insufficient_Weight',
     1: 'Normal_Weight',
