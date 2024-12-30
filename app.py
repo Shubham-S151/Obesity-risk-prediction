@@ -12,7 +12,7 @@ with open('encoder.pkl', 'rb') as file:
 
 def prediction(input_data):
     # Make prediction
-    pred = model.predict(input_data)[0]
+    pred = model.predict(input_data)
 
     # Return corresponding category
     categories = [
