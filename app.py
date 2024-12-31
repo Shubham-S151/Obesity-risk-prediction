@@ -29,9 +29,8 @@ def prediction(input_data):
 def main():
 
     st.title('Fit Forecaster')
-    st.subheader("FitForecaster is a prediction-focused application that uses AI to estimate \
-                 an individual's risk of obesity based on input data. It provides quick and \
-                 accurate predictions to help users understand potential risks.")
+    st.subheader("FitForecaster is a prediction-focused application that uses Machine Learning Algorithm to estimate \
+                 an individual's type of obesity based on input data.")
 
     # Input fields for each of the columns
     gender = (lambda x : 1 if x=='Male' else 0)(st.selectbox('Enter Gender:', ['Male', 'Female']))
