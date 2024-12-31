@@ -47,7 +47,7 @@ def main():
     # Input fields for each of the columns
     gender = (lambda x : 1 if x=='Male' else 0)(st.selectbox('Enter Gender:', ['Male', 'Female']))
     age = st.number_input('Enter Age:', min_value=0, max_value=100, step=1)
-    height = st.number_input('Enter Height (cm):', min_value=50, max_value=00, step=1)
+    height = st.number_input('Enter Height (cm):', min_value=50, max_value=300, step=1)
     weight = st.number_input('Enter Weight (kg):', min_value=1, max_value=200, step=1)
     family_history_with_overweight = (lambda x : 1 if x=='Yes' else 0)(st.selectbox('Family history with overweight:', ['Yes', 'No']))
     favc = (lambda x : 1 if x=='Yes' else 0)(st.selectbox('FAVC (Frequent consumption of high caloric food):', ['Yes', 'No']))
