@@ -10,15 +10,7 @@ with open('model.pkl','rb') as file:
 
 def prediction(input_data):
     pred = model.predict(input_data)
-    '''{
-    0: 'Insufficient_Weight',
-    1: 'Normal_Weight',
-    2: 'Obesity_Type_I',
-    3: 'Obesity_Type_II',
-    4: 'Obesity_Type_III',
-    5: 'Overweight_Level_I',
-    6: 'Overweight_Level_II'
-    }'''
+   
     if pred==0:
         return 'Insufficient_Weight'
     elif pred==1:
